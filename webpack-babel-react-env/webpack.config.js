@@ -9,9 +9,19 @@ module.exports = {
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader", // compatibility with older browsers
-        },
+        use: [
+          {
+            loader: "babel-loader", // compatibility with older browsers
+          },
+          //   {
+          //     loader: "ts-loader",
+          //   },
+        ],
+      },
+
+      {
+        test: /\.(css|scss)$/,
+        use: ["style-loader", "css-loader", "sass-loader"], // compatibility with older browsers
       },
     ],
   },

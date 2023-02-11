@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./styles/app.css";
 const App = () => {
   return (
     <>
-      <h1>Webpack</h1>
+      <h1 className="sample">Webpack</h1>
       <div>hello world</div>
     </>
   );
