@@ -1,4 +1,5 @@
-import path from "path";
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development", //production
@@ -6,7 +7,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /|.m?js|jsx|ts|tsx$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader", // compatibility with older browsers
@@ -21,6 +22,11 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", "ts", "tsx"],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
+  ],
   devServer: {
     static: {
       directory: path.resolve(__dirname, "dist"),
